@@ -3,23 +3,23 @@
 <mapper namespace="cn.zp.mapper.UserMapper">
 
     <insert id="save" parameterType="User">
-        insert into user(name, age, info) values (#{name}, #{age}, #{info})
+        insert into tb_user(name, age, info) values (#{name}, #{age}, #{info})
     </insert>
 
     <update id="update" parameterType="User">
-        update user set name = #{name}, url = #{url}, age = #{age}, info = #{info} where id = #{id}
+        update tb_user set name = #{name}, url = #{url}, age = #{age}, info = #{info} where id = #{id}
     </update>
 
     <delete id="delete" parameterType="int">
-        delete from user where id = #{id}
+        delete from tb_user where id = #{id}
     </delete>
 
     <select id="findById" parameterType="int" resultType="User">
-        select id, name, url, age, info from user where id = #{id}
+        select id, name, url, age, info from tb_user where id = #{id}
     </select>
 
     <select id="findAll" resultType="User">
-        select id, name, url, age, info from user
+        select id, name, url, age, info from tb_user
     </select>
 
 </mapper>
