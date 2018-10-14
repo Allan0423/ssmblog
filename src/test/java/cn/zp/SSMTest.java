@@ -1,7 +1,7 @@
 package cn.zp;
 
-import cn.zp.model.User;
-import cn.zp.service.IUserService;
+import cn.zp.model.TestUser;
+import cn.zp.service.ITestUserService;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,11 +16,11 @@ public class SSMTest {
     private static Logger LOGGER = Logger.getLogger(SSMTest.class);
 
     @Resource
-    private IUserService userService;
+    private ITestUserService userService;
 
     @Test
     public void test1(){
-        User user = userService.findById(1);
-        LOGGER.info(user.toString());
+        TestUser testUser = userService.findById(1);
+        LOGGER.info(testUser.toString());
     }
 }

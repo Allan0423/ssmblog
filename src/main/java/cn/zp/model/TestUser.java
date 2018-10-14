@@ -1,6 +1,6 @@
 package cn.zp.model;
 
-public class User {
+public class TestUser {
 
     int id;
     String name;
@@ -32,7 +32,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id = " + id + ", name = " + name + ", age = " + age + "]";
+        return "TestUser [id = " + id + ", name = " + name + ", age = " + age + "]";
     }
 }
 

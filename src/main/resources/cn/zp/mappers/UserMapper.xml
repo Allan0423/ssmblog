@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zp.mapper.UserMapper">
+<mapper namespace="cn.zp.mapper.TestMapper">
 
-    <resultMap id="UserMapping" type="User">
+    <resultMap id="UserMapping" type="TestUser">
         <id column="user_id" property="id" javaType="int"/>
         <result column="user_name" property="name" javaType="String"/>
         <result column="user_age" property="age" javaType="int"/>
     </resultMap>
 
-    <insert id="save" parameterType="User">
+    <insert id="save" parameterType="TestUser">
         insert into tb_user(user_name, user_age) values (#{name}, #{age})
     </insert>
 
-    <update id="update" parameterType="User">
+    <update id="update" parameterType="TestUser">
         update tb_user set user_name = #{name}, user_age = #{age} where user_id = #{id}
     </update>
 

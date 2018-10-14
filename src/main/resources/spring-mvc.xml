@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!-- Packages that use annotations, subpackages included -->
+    <!-- 使用注解的包，包括子集 -->
     <context:component-scan base-package="cn.zp.controller"/>
 
     <!-- Extend the annotation driver, bind the request params to controller params -->
