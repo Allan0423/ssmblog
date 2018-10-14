@@ -4,18 +4,7 @@ public class User {
 
     int id;
     String name;
-    String url;
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     int age;
-    String info;
 
     public int getId() {
         return id;
@@ -41,17 +30,9 @@ public class User {
         this.age = age;
     }
 
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
     @Override
     public String toString() {
-        return "User [id = " + id + ", name = " + name + ", url = " + url + ", age = " + age + ", info = " + info + "]";
+        return "User [id = " + id + ", name = " + name + ", age = " + age + "]";
     }
 }
 
