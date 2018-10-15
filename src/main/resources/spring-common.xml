@@ -30,6 +30,7 @@
             <value>
                 /login=anon
                 /admin/**=authc
+                /logout=logout
             </value>
         </property>
     </bean>
