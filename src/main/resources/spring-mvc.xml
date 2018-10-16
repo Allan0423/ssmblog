@@ -13,13 +13,21 @@
     <!-- 使用注解的包，包括子集 -->
     <context:component-scan base-package="cn.zp.controller"/>
 
-    <!-- Extend the annotation driver, bind the request params to controller params -->
+    <!-- 扩展注解驱动，将请求绑定到控制器参数 -->
     <mvc:annotation-driven/>
 
-    <!-- Static resources such as js css imgs -->
+    <!-- 静态资源 -->
     <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/**" location="/jsp/"/>
 
-    <!-- File upload resolver -->
+
+    <!-- 内部视图解析器 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 文件上传解析器 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="maxUploadSize" value="10000000"/>
@@ -27,10 +35,5 @@
         <property name="resolveLazily" value="true"/>
     </bean>
 
-    <!-- The internal view resolver -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
 
 </beans>

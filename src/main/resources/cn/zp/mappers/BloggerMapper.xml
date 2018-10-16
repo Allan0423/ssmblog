@@ -3,21 +3,21 @@
 <mapper namespace="cn.zp.mapper.BloggerMapper">
 
     <resultMap id="BloggerMapping" type="Blogger">
-        <id column="blogger_id" property="id" javaType="int"/>
-        <result property="blogger_name" column="name"/>
-        <result property="blogger_password" column="password"/>
-        <result property="blogger_profile" column="profile"/>
-        <result property="blogger_nickName" column="nickName"/>
-        <result property="blogger_signature" column="signature"/>
-        <result property="blogger_profilePic" column="profilePic"/>
+        <id property="id" column="blogger_id" javaType="int"/>
+        <result property="name" column="blogger_name"/>
+        <result property="password" column="blogger_password"/>
+        <result property="profile" column="blogger_profile"/>
+        <result property="nickName" column="blogger_nickName"/>
+        <result property="signature" column="blogger_signature"/>
+        <result property="profilePic" column="blogger_profilePicprofilePic"/>
     </resultMap>
 
     <select id="findBloggerByName" parameterType="String" resultMap="BloggerMapping">
-		select * from tb_blogger where name=#{name}
+		select * from tb_blogger where blogger_name=#{name}
 	</select>
 
     <select id="findBlogger" resultMap="BloggerMapping">
-		select * from tb_blogger where id=1;
+		select * from tb_blogger where blogger_id=1;
 	</select>
 
     <update id="update" parameterType="Blogger">

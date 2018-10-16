@@ -8,7 +8,7 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 public class CryptoUtil {
 
     private static final String salt = "ssmblog";
-    public static String sha256(String message){
+    public static String sha256WithSalt(String message){
         return new Sha256Hash(message, salt).toString();
     }
 }

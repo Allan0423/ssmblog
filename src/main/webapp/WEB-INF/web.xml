@@ -25,7 +25,6 @@
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
-
     <!-- 编码过滤器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>

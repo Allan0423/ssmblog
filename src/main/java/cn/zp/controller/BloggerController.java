@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -40,10 +39,10 @@ public class BloggerController {
     public String bloggerLogin(Blogger blogger, HttpServletRequest request){
 
         String loginSucced = "redirect:/admin/main.jsp";
-        String login = "login";
+        String login = "/login";
 
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(blogger.getName(), CryptoUtil.sha256(blogger.getPassword()));
+        UsernamePasswordToken token = new UsernamePasswordToken(blogger.getName(), CryptoUtil.sha256WithSalt(blogger.getPassword()));
         try{
             // 登陆验证
             subject.login(token);

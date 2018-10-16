@@ -43,7 +43,6 @@
             position: absolute;
             top: 43px;
             left: 40px;
-
         }
         .p_logo{
             background: url("${pageContext.request.contextPath}/static/images/password.png") no-repeat;
@@ -145,7 +144,7 @@
         });
 
         function checkForm(){
-            var userName=$("#userName").val();
+            var userName=$("#name").val();
             var password=$("#password").val();
             if(userName==null||userName==""){
                 $("#error").html("用户名不能为空！");
@@ -174,7 +173,7 @@
         </DIV>
         <P style="padding: 30px 0px 10px; position: relative;">
             <SPAN class="u_logo"></SPAN>
-            <INPUT id="userName" name="userName" class="ipt" type="text" placeholder="请输入用户名" value="${blogger.userName }">
+            <INPUT id="name" name="name" class="ipt" type="text" placeholder="请输入用户名" value="${blogger.name }">
         </P>
         <P style="position: relative;">
             <SPAN class="p_logo"></SPAN>
