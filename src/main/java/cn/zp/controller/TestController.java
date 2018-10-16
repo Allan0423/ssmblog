@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 public class TestController {
 
     @Resource
-    ITestUserService userService;
+    private ITestUserService userService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String find(@PathVariable("id") String id){

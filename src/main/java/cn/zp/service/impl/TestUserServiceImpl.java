@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class TestTestUserService implements ITestUserService {
+public class TestUserServiceImpl implements ITestUserService {
 
     @Resource
     TestMapper mapper;
