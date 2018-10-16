@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class SSMTest {
     private static Logger LOGGER = Logger.getLogger(SSMTest.class);
 
