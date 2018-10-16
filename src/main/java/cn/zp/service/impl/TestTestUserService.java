@@ -1,8 +1,8 @@
 package cn.zp.service.impl;
 
-import cn.zp.mapper.UserMapper;
-import cn.zp.model.User;
-import cn.zp.service.IUserService;
+import cn.zp.mapper.TestMapper;
+import cn.zp.model.TestUser;
+import cn.zp.service.ITestUserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,19 +11,19 @@ import java.util.List;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class UserService implements IUserService {
+public class TestTestUserService implements ITestUserService {
 
     @Resource
-    UserMapper mapper;
+    TestMapper mapper;
 
     @Override
-    public void save(User user) {
-        mapper.save(user);
+    public void save(TestUser testUser) {
+        mapper.save(testUser);
     }
 
     @Override
-    public boolean update(User user) {
-        return mapper.update(user);
+    public boolean update(TestUser testUser) {
+        return mapper.update(testUser);
     }
 
     @Override
@@ -32,12 +32,12 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User findById(int id) {
+    public TestUser findById(int id) {
         return mapper.findById(id);
     }
 
     @Override
-    public List<User> findAll() {
+    public List<TestUser> findAll() {
         return mapper.findAll();
     }
 }
