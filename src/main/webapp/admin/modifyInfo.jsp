@@ -39,7 +39,7 @@
                     <td width="80px">用户名：</td>
                     <td>
                         <input type="hidden" id="id" name="id" value="${currentUser.id }"/>
-                        <input type="text" id="userName" name="userName" style="width: 200px;" value="${currentUser.name }" readonly="readonly"/>
+                        <input type="text" id="userName" name="name" style="width: 200px;" value="${currentUser.name }" readonly="readonly"/>
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <td>个人头像：</td>
-                    <td><input type="file" id="profilePic" name="profilePic" style="width: 400px;"/></td>
+                    <td><input type="file" id="imageFile" name="imageFile" style="width: 400px;"/></td>
                 </tr>
                 <tr>
                     <td valign="top">个人简介：</td>
@@ -85,7 +85,6 @@
                         result = eval("(" + result.responseText + ")");
                         $("#nickName").val(result.nickName);
                         $("#signature").val(result.signature);
-                        $("#nickName").val(result.nickName);
                         UE.getEditor('profile').setContent(result.profile);
                     }
                 }

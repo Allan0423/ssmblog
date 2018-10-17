@@ -40,11 +40,11 @@ public class BloggerAdminController {
      * @throws Exception
      */
     @RequestMapping("/save")
-    public void save(@RequestParam("profilePic") MultipartFile profilePic, Blogger blogger, HttpServletRequest request, HttpServletResponse response)throws Exception{
-        if(!profilePic.isEmpty()){
+    public void save(@RequestParam("imageFile") MultipartFile imageFile, Blogger blogger, HttpServletRequest request, HttpServletResponse response)throws Exception{
+        if(!imageFile.isEmpty()){
             String filePath = request.getServletContext().getRealPath("/");
-            String imageName = DateUtil.getCurrentDateStr() + "." + profilePic.getOriginalFilename().split("\\.")[1];
-            profilePic.transferTo(new File(filePath + "static/userImages/"+imageName));
+            String imageName = DateUtil.getCurrentDateStr() + "." + imageFile.getOriginalFilename().split("\\.")[1];
+            imageFile.transferTo(new File(filePath + "static/userImages/"+imageName));
             blogger.setProfilePic(imageName);
         }
         int resultTotal = bloggerService.update(blogger);
