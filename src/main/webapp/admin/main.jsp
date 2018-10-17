@@ -51,7 +51,7 @@
                 success:function(result){
                     var result=eval('('+result+')');
                     if(result.success){
-                        $.messager.alert("系统提示","密码修改成功,下一次登录失效！");
+                        $.messager.alert("系统提示","密码修改成功,下一次登录生效！");
                         resetValue();
                         $("#dlg").dialog("close");
                     }else{
@@ -96,7 +96,7 @@
     <table style="padding: 5px" width="100%">
         <tr>
             <td width="50%">
-                <img alt="logo" src="/static/images/logo.png">
+                <img alt="logo" src="${pageContext.request.contextPath}/static/images/logo.png">
             </td>
             <td valign="bottom" align="right" width="50%">
                 <font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${currentUser.name }</font>
@@ -122,7 +122,7 @@
             <a href="javascript:openTab('博客信息管理','blogManage.jsp','icon-bkgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">博客信息管理</a>
         </div>
         <div title="博客类别管理" data-options="iconCls:'icon-bklb'" style="padding:10px">
-            <a href="javascript:openTab('博客类别信息管理','blogTypeManage.jsp','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">博客类别信息管理</a>
+            <a href="javascript:openTab('博客类别信息管理','..${pageContext.request.contextPath}/admin/blogTypeManage.jsp','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">博客类别信息管理</a>
         </div>
         <div title="评论管理"  data-options="iconCls:'icon-plgl'" style="padding:10px">
             <a href="javascript:openTab('评论审核','commentReview.jsp','icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>

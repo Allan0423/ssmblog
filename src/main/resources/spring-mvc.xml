@@ -18,8 +18,6 @@
 
     <!-- 静态资源 -->
     <mvc:resources mapping="/static/**" location="/static/"/>
-    <mvc:resources mapping="/**" location="/jsp/"/>
-
 
     <!-- 内部视图解析器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -34,6 +32,5 @@
         <property name="maxInMemorySize" value="40960" />
         <property name="resolveLazily" value="true"/>
     </bean>
-
 
 </beans>

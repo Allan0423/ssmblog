@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 /**
  * 博主service实现类
  */
-@Service
+@Service("blogService")
 @Transactional(rollbackFor = Exception.class)
 public class BloggerServiceImpl implements IBloggerService {
 
