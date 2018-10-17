@@ -43,8 +43,7 @@
                 blogger_profilePic=#{profilePic},
             </if>
         </set>
-        <!-- 此处限定只能修改第一个博主的密码，这是不好的，应该用name匹配 -->
-        where blogger_id=1
+        where blogger_name=#{name}
     </update>
 
 </mapper>

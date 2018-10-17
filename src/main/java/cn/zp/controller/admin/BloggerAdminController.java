@@ -10,8 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+/**
+ * 博主信息设置控制器
+ * 1. 修改密码
+ * 2. 退出登录
+ */
 @Controller
 @RequestMapping("/admin/blogger")
 public class BloggerAdminController {
@@ -28,8 +35,9 @@ public class BloggerAdminController {
      * @throws Exception
      */
     @RequestMapping("/modifyPassword")
-    public String modifyPassword(String newPassword, HttpServletResponse response) throws Exception{
+    public String modifyPassword(String name, String newPassword, HttpServletResponse response) throws Exception{
        Blogger blogger = new Blogger();
+       blogger.setName(name);
        blogger.setPassword(CryptoUtil.sha256WithSalt(newPassword));
        int dbOpResult = bloggerService.update(blogger);
         JSONObject resultJson = new JSONObject();

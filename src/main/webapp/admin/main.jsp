@@ -149,7 +149,7 @@
             <tr>
                 <td>用户名：</td>
                 <td>
-                    <input type="text" id="userName" name="userName" value="${currentUser.name }" readonly="readonly" style="width: 200px"/>
+                    <input type="text" id="userName" name="name" value="${currentUser.name }" readonly="readonly" style="width: 200px"/>
                 </td>
             </tr>
             <tr>
