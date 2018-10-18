@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zp.mapper.BloggerMapper">
+
+    <resultMap type="Comment" id="CommentMapping">
+        <result property="id" column="id"/>
+        <result property="userIp" column="userIp"/>
+        <result property="content" column="content"/>
+        <result property="commentDate" column="commentDate"/>
+        <result property="state" column="state"/>
+        <association property="blog" column="blogId" select="cn.zp.mapper.BloggerMapper.findById"></association>
+    </resultMap>
+
+    <insert id="add" parameterType="Comment">
+		INSERT INTO tb_comment VALUES(NULL,#{userIp},#{blog.id},#{content},now(),0)
+	</insert>
+
+    <update id="update" parameterType="Comment">
+        UPDATE tb_comment
+        <set>
+            <if test="state!=null">
+                comment_state=#{state},
+            </if>
+        </set>
+        WHERE comment_id=#{id}
+    </update>
+
+    <select id="list" parameterType="Map" resultMap="CommentMapping">
+        SELECT * FROM tb_comment
+        <where>
+            <if test="blogId!=null">
+                AND comment_blogid=#{blogId}
+            </if>
+            <if test="state!=null">
+                AND comment_state=#{state}
+            </if>
+        </where>
+        ORDER BY commentDate
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Integer">
+        SELECT COUNT(*) FROM tb_comment
+        <where>
+            <if test="state!=null">
+                AND comment_state=#{state}
+            </if>
+        </where>
+    </select>
+
+    <delete id="delete" parameterType="Integer">
+		DELETE FROM tb_comment WHERE comment_id=#{id}
+	</delete>
+</mapper>
