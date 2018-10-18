@@ -44,11 +44,11 @@
                 </tr>
                 <tr>
                     <td>昵称：</td>
-                    <td><input type="text" id="nickName" name="nickName"  style="width: 200px;"/></td>
+                    <td><input type="text" id="nickName" name="nickName" style="width: 200px;"/></td>
                 </tr>
                 <tr>
                     <td>个性签名：</td>
-                    <td><input type="text" id="sign" name="signature" value="${currentUser.signature }" style="width: 400px;"/></td>
+                    <td><input type="text" id="sign" name="signature" style="width: 400px;"/></td>
                 </tr>
                 <tr>
                     <td>个人头像：</td>
@@ -80,11 +80,11 @@
                 {
                     method:"post",
                     async : false,
-                    data:{},
+                    data:{name:"${currentUser.name}"},
                     onsuccess:function(result){
                         result = eval("(" + result.responseText + ")");
                         $("#nickName").val(result.nickName);
-                        $("#signature").val(result.signature);
+                        $("#sign").val(result.signature);
                         UE.getEditor('profile').setContent(result.profile);
                     }
                 }
