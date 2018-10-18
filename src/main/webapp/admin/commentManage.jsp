@@ -23,14 +23,16 @@
             var ids=strIds.join(",");
             $.messager.confirm("系统提示","您确定要审核这<font color=red>"+selectedRows.length+"</font>条评论吗？",function(r){
                 if(r){
-                    $.post("${pageContext.request.contextPath}/admin/comment/review.do",{ids:ids,state:state},function(result){
-                        if(result.success){
-                            $.messager.alert("系统提示","提交成功！");
-                            $("#dg").datagrid("reload");
-                        }else{
-                            $.messager.alert("系统提示","提交失败！");
-                        }
-                    },"json");
+                    $.post("${pageContext.request.contextPath}/admin/comment/review.do",
+                        {ids:ids,state:state},
+                        function(result){
+                            if(result.success){
+                                $.messager.alert("系统提示","提交成功！");
+                                $("#dg").datagrid("reload");
+                            }else{
+                                $.messager.alert("系统提示","提交失败！");
+                            }
+                        },"json");
                 }
             });
         }
