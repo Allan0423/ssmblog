@@ -115,7 +115,7 @@
     <div class="easyui-accordion" data-options="fit:true,border:false">
         <div title="常用操作" data-options="selected:true,iconCls:'icon-item'" style="padding: 10px">
             <a href="javascript:openTab('写博客','..${pageContext.request.contextPath}/admin/writeBlog.jsp','icon-writeblog')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-writeblog'" style="width: 150px">写博客</a>
-            <a href="javascript:openTab('评论审核','..${pageContext.request.contextPath}/admin/commentReview.jsp','icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>
+            <a href="javascript:openTab('评论审核',com${pageContext.request.contextPath}mentReview2.jsp,'icon-review')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>
         </div>
         <div title="博客管理"  data-options="iconCls:'icon-bkgl'" style="padding:10px;">
             <a href="javascript:openTab('写博客','..${pageContext.request.contextPath}/admin/writeBlog.jsp','icon-writeblog')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-writeblog'" style="width: 150px;">写博客</a>
