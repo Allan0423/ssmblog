@@ -2,6 +2,9 @@ package cn.zp.model;
 
 import java.util.Date;
 
+/**
+ * 评论实体类
+ */
 public class Comment {
 
     /**
