@@ -10,7 +10,7 @@
         <result property="profile" column="blogger_profile"/>
         <result property="nickName" column="blogger_nickName"/>
         <result property="signature" column="blogger_signature"/>
-        <result property="profilePic" column="blogger_profilePicprofilePic"/>
+        <result property="profilePic" column="blogger_profilePic"/>
     </resultMap>
 
     <select id="findBloggerByName" parameterType="String" resultMap="BloggerMapping">
