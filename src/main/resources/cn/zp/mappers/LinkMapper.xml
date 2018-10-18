@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zp.mapper.BlogMapper">
+
+    <resultMap type="Link" id="LinkMapping">
+        <result property="id" column="link_id"/>
+        <result property="linkName" column="link_linkname"/>
+        <result property="linkUrl" column="link_linkurl"/>
+        <result property="orderNo" column="link_orderno"/>
+    </resultMap>
+
+    <insert id="add" parameterType="Link">
+		INSERT INTO t_link VALUES(NULL,#{linkName},#{linkUrl},#{orderNo})
+	</insert>
+
+    <update id="update" parameterType="Link">
+        UPDATE tb_link
+        <set>
+            <if test="linkName!=null and linkName!='' ">
+                link_linkname=#{linkName},
+            </if>
+            <if test="linkUrl!=null and linkUrl!='' ">
+                link_linkurl=#{linkUrl},
+            </if>
+            <if test="orderNo!=null">
+                link_orderno=#{orderNo},
+            </if>
+        </set>
+        WHERE link_id=#{id}
+    </update>
+
+    <select id="list" parameterType="Map" resultMap="LinkMapping">
+        SELECT * FROM tb_link ORDER BY link_orderno
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Integer">
+		SELECT COUNT(*) FROM tb_link
+	</select>
+
+    <delete id="delete" parameterType="Integer">
+		DELETE FROM tb_link WHERE link_id=#{id}
+	</delete>
+</mapper>
