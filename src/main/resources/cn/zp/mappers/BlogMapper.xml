@@ -1,3 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zp.mapper.BlogMappero">
+
+    <resultMap type="Blog" id="BlogMapping">
+        <id property="id" column="blog_id"/>
+        <result property="title" column="blog_title"/>
+        <result property="summary" column="blog_summary"/>
+        <result property="releaseDate" column="blog_releaseDate"/>
+        <result property="clickHit" column="blog_clickHit"/>
+        <result property="replyHit" column="blog_replyHit"/>
+        <result property="content" column="blog_content"/>
+        <result property="keyWord" column="blog_keyword"/>
+        <association property="blogType" column="blog_typeid" select="cn.zp.mapper.BlogTypeMapper.findById"></association>
+
+    </resultMap>
+
+    <select id="countList"  resultMap="BlogMapping">
+		SELECT DATE_FORMAT(releaseDate,'%Y年%m月') AS releaseDateStr ,COUNT(*) AS blogCount  FROM tb_blog GROUP BY DATE_FORMAT(releaseDate,'%Y年%m月') ORDER BY DATE_FORMAT(releaseDate,'%Y年%m月') DESC;
+	</select>
+
+    <select id="list" parameterType="Map" resultMap="BlogMapping">
+        select * from tb_blog
+        <where>
+            <if test="title!=null and title!='' ">
+                and blog_title like #{title}
+            </if>
+            <if test="typeId!=null and typeId!='' ">
+                and blog_typeId = #{typeId}
+            </if>
+            <if test="releaseDateStr!=null and releaseDateStr!='' ">
+                and DATE_FORMAT(blog_releaseDate,'%Y年%m月') = #{releaseDateStr}
+            </if>
+        </where>
+        order by blog_releaseDate desc
+        <if test="start!=null and size!=null">
+            limit #{start},#{size}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Integer">
+        select count(*) from tb_blog
+        <where>
+            <if test="title!=null and title!='' ">
+                and blog_title like #{title}
+            </if>
+            <if test="typeId!=null and typeId!='' ">
+                and blog_typeid = #{typeId}
+            </if>
+            <if test="releaseDateStr!=null and releaseDateStr!='' ">
+                and DATE_FORMAT(blog_releaseDate,'%Y年%m月') = #{releaseDateStr}
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="Integer" resultMap="BlogMapping">
+		select * from tb_blog where id=#{id}
+	</select>
+
+    <update id="update" parameterType="Blog">
+        update tb_blog
+        <set>
+            <if test="title!=null and title!='' ">
+                blog_title=#{title},
+            </if>
+            <if test="summary!=null and summary!='' ">
+                blog_summary=#{summary},
+            </if>
+            <if test="content!=null and content!='' ">
+                blog_content=#{content},
+            </if>
+            <if test="blogType.id!=null ">
+                blog_typeId=#{blogType.id},
+            </if>
+            <if test="clickHit!=null ">
+                blog_clickHit=#{clickHit},
+            </if>
+            <if test="replyHit!=null ">
+                blog_replyHit=#{replyHit},
+            </if>
+            <if test="keyWord!=null and keyWord!='' ">
+                blog_keyword=#{keyWord},
+            </if>
+        </set>
+        where blog_id=#{id}
+    </update>
+
+    <select id="getLastBlog" parameterType="Integer" resultMap="BlogMapping">
+		SELECT * FROM tb_blog WHERE blog_id&lt;#{id} ORDER BY id DESC LIMIT 1
+	</select>
+
+    <select id="getNextBlog" parameterType="Integer" resultMap="BlogMapping">
+		SELECT * FROM tb_blog WHERE blog_id&gt;#{id} ORDER BY id ASC LIMIT 1
+	</select>
+
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Blog">
+		insert into tb_blog values(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyWord})
+	</insert>
+
+    <delete id="delete" parameterType="Integer">
+		DELETE FROM tb_blog where blog_id=#{id}
+	</delete>
+
+    <select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
+		SELECT COUNT(*) FROM tb_blog WHERE blog_typeid=#{typeId}
+	</select>
+</mapper>

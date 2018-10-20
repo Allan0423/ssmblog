@@ -3,14 +3,14 @@
 <mapper namespace="cn.zp.mapper.BlogMapper">
 
     <resultMap type="Link" id="LinkMapping">
-        <result property="id" column="link_id"/>
+        <id property="id" column="link_id"/>
         <result property="linkName" column="link_linkname"/>
         <result property="linkUrl" column="link_linkurl"/>
         <result property="orderNo" column="link_orderno"/>
     </resultMap>
 
     <insert id="add" parameterType="Link">
-		INSERT INTO t_link VALUES(NULL,#{linkName},#{linkUrl},#{orderNo})
+		INSERT INTO tb_link VALUES(NULL,#{linkName},#{linkUrl},#{orderNo})
 	</insert>
 
     <update id="update" parameterType="Link">
