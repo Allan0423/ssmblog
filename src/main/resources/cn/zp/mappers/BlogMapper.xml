@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zp.mapper.BlogMappero">
-
     <resultMap type="Blog" id="BlogMapping">
         <id property="id" column="blog_id"/>
         <result property="title" column="blog_title"/>
@@ -12,7 +11,6 @@
         <result property="content" column="blog_content"/>
         <result property="keyWord" column="blog_keyword"/>
         <association property="blogType" column="blog_typeid" select="cn.zp.mapper.BlogTypeMapper.findById"></association>
-
     </resultMap>
 
     <select id="countList"  resultMap="BlogMapping">

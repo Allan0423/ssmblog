@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zp.mapper.BloggerMapper">
-
     <!-- 博主查询结果字段与博主类属性之间的映射关系，propertity为类属性，column为表中的字段名 -->
     <resultMap id="BloggerMapping" type="Blogger">
         <id property="id" column="blogger_id" javaType="int"/>
