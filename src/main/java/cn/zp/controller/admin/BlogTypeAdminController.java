@@ -2,6 +2,7 @@ package cn.zp.controller.admin;
 
 import cn.zp.model.BlogType;
 import cn.zp.model.PageBean;
+import cn.zp.service.IBlogService;
 import cn.zp.service.IBlogTypeService;
 import cn.zp.util.ResponseUtil;
 import net.sf.json.JSONArray;
@@ -16,12 +17,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 博客类别管理Controller
+ */
 @Controller
 @RequestMapping("/admin/blogType")
 public class BlogTypeAdminController {
 
     @Resource
     private IBlogTypeService blogTypeService;
+
+    @Resource
+    private IBlogService blogService;
 
     /**
      * 分页查询博客类别信息
@@ -80,15 +87,17 @@ public class BlogTypeAdminController {
      * @throws Exception
      */
     @RequestMapping("/delete")
-    public void delete(@RequestParam(value="ids",required=false)String ids,HttpServletResponse response)throws Exception{
-        String []idsStr = ids.split(",");
+    public void delete(@RequestParam(value="ids", required=false) String ids,
+                       HttpServletResponse response)throws Exception{
+
+        String[] idArray = ids.split(",");
         JSONObject result = new JSONObject();
-        for(int i = 0; i < idsStr.length; i++){
-            //if(blogService.getBlogByTypeId(Integer.parseInt(idsStr[i]))>0){
-            //    result.put("exist", "博客类别下有博客，不能删除！");
-            //}else{
-                blogTypeService.delete(Integer.parseInt(idsStr[i]));
-            //}
+        for(String id : idArray){
+            if(blogService.getBlogCountByTypeId(Integer.parseInt(id))>0){
+                result.put("exist", "博客类别下有博客，不能删除！");
+            }else{
+                blogTypeService.delete(Integer.parseInt(id));
+            }
         }
         result.put("success", true);
         ResponseUtil.write(response, result);
