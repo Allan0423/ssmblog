@@ -40,7 +40,7 @@
         </if>
     </select>
 
-    <select id="getTotal" parameterType="Map" resultType="Integer">
+    <select id="getCount" parameterType="Map" resultType="Integer">
         SELECT COUNT(*) FROM tb_comment
         <where>
             <if test="state!=null">
