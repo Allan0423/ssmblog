@@ -2,8 +2,7 @@
          import="java.awt.*, java.awt.image.*,java.util.*,javax.imageio.*"
          pageEncoding="utf-8"%>
 <%!
-    Color getRandColor(int fc,int bc)
-    {
+    Color getRandColor(int fc, int bc){
         Random random = new Random();
         if(fc>255) fc = 255;
         if(bc>255) bc = 255;
@@ -26,8 +25,7 @@
     g.fillRect(0, 0, width, height);
     g.setFont(new Font("Times New Roman",Font.PLAIN, 18));
     g.setColor(getRandColor(160, 200));
-    for (int i = 0; i < 155; i++)
-    {
+    for (int i = 0; i < 155; i++){
         int x = random.nextInt(width);
         int y = random.nextInt(height);
         int xl = random.nextInt(12);
