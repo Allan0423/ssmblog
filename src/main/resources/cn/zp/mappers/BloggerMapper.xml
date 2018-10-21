@@ -7,9 +7,9 @@
         <result property="name" column="blogger_name"/>
         <result property="password" column="blogger_password"/>
         <result property="profile" column="blogger_profile"/>
-        <result property="nickName" column="blogger_nickName"/>
+        <result property="nickName" column="blogger_nickname"/>
         <result property="signature" column="blogger_signature"/>
-        <result property="profilePic" column="blogger_profilePic"/>
+        <result property="profilePicName" column="blogger_profilepicname"/>
     </resultMap>
 
     <select id="findBloggerByName" parameterType="String" resultMap="BloggerMapping">
@@ -38,8 +38,8 @@
             <if test="profile != null and profile != ''">
                 blogger_profile=#{profile},
             </if>
-            <if test="profilePic != null and profilePic != ''">
-                blogger_profilePic=#{profilePic},
+            <if test="profilePicName != null and profilePicName != ''">
+                blogger_profilepicname=#{profilePicName},
             </if>
         </set>
         where blogger_name=#{name}

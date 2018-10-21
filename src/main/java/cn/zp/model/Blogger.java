@@ -23,8 +23,8 @@ public class Blogger {
     // 签名
     private String signature;
 
-    // 头像
-    private String profilePic;
+    // 头像文件名
+    private String profilePicName;
 
     public Integer getId() {
         return id;
@@ -74,11 +74,11 @@ public class Blogger {
         this.signature = signature;
     }
 
-    public String getProfilePic() {
-        return profilePic;
+    public String getProfilePicName() {
+        return profilePicName;
     }
 
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
+    public void setProfilePicName(String profilePicName) {
+        this.profilePicName = profilePicName;
     }
 }
