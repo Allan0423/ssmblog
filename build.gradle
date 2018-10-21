@@ -53,6 +53,8 @@ dependencies {
     compile 'org.apache.lucene:lucene-highlighter:5.3.1'
     compile 'com.alibaba:druid:1.0.16'
     compile 'org.jsoup:jsoup:1.8.3'
+    compile 'cn.songxinqiang:com.baidu.ueditor:1.1.2-offical'
+    compile 'org.json:json:20180813'
 
     testCompile 'junit:junit:4.11'
     testCompile 'junit:junit:4.12'
