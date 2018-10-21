@@ -66,7 +66,7 @@
         <th field="blog" width="200" align="center" formatter="formatBlogTitle">博客标题</th>
         <th field="userIp" width="100" align="center">用户IP</th>
         <th field="content" width="200" align="center">评论内容</th>
-        <th field="commentDate" width="50" align="center">评论日期</th>
+        <th field="date" width="50" align="center">评论日期</th>
         <th field="state" width="50" align="center" formatter="formatState">评论状态</th>
     </tr>
     </thead>

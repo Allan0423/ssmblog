@@ -5,7 +5,7 @@
         <id property="id" column="id"/>
         <result property="userIp" column="userIp"/>
         <result property="content" column="content"/>
-        <result property="commentDate" column="commentDate"/>
+        <result property="date" column="comment_date"/>
         <result property="state" column="state"/>
         <association property="blog" column="blogId" select="cn.zp.mapper.BloggerMapper.findById"></association>
     </resultMap>
@@ -34,7 +34,7 @@
                 AND comment_state=#{state}
             </if>
         </where>
-        ORDER BY commentDate
+        ORDER BY comment_date
         <if test="start!=null and size!=null">
             limit #{start},#{size}
         </if>

@@ -30,7 +30,7 @@ public class Comment {
     /**
      * 评论日期
      */
-    private Date commentDate;
+    private Date date;
 
     /**
      * 评论状态
@@ -70,12 +70,12 @@ public class Comment {
         this.blog = blog;
     }
 
-    public Date getCommentDate() {
-        return commentDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setCommentDate(Date commentDate) {
-        this.commentDate = commentDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Integer getState() {
