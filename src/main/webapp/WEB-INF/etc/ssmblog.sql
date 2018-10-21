@@ -1,0 +1,72 @@
+-- Table structure for table `t_blogger`
+DROP TABLE IF EXISTS `tb_blogger`;
+
+CREATE TABLE `tb_blogger` (
+  `blogger_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blogger_name` varchar(50) NOT NULL,
+  `blogger_password` varchar(100) NOT NULL,
+  `blogger_profile` text,
+  `blogger_nickname` varchar(50),
+  `blogger_signature` varchar(100),
+  `blogger_imageName` varchar(100),
+  PRIMARY KEY (`blogger_id`)
+) AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+-- Table structure for table `tb_blogtype`
+DROP TABLE IF EXISTS `tb_blogtype`;
+
+CREATE TABLE `tb_blogtype` (
+  `blogtype_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blogtype_name` varchar(30) NOT NULL,
+  `blogtype_orderno` int(11),
+  PRIMARY KEY (`blogtype_id`)
+) DEFAULT CHARSET=utf8;
+
+
+-- Table structure for table `tb_blog`
+DROP TABLE IF EXISTS `tb_blog`;
+
+CREATE TABLE `tb_blog` (
+  `blog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `blog_title` varchar(200) NOT NULL,
+  `blog_DIGEST` varchar(400),
+  `blog_releaseDate` datetime,
+  `blog_clickHit` int(11),
+  `blog_replyhit` int(11),
+  `blog_content` text,
+  `blog_typeid` int(11),
+  `blog_keyword` varchar(200),
+  PRIMARY KEY (`blog_id`),
+  KEY `blog_typeid` (`blogtype_typeid`),
+  CONSTRAINT `tb_blog_ibfk_1` FOREIGN KEY (`blog_typeid`) REFERENCES `tb_blogtype` (`blogtype_id`)
+) DEFAULT CHARSET=utf8;
+
+
+-- Table structure for table `tb_comment`
+DROP TABLE IF EXISTS `tb_comment`;
+
+CREATE TABLE `tb_comment` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_userip` varchar(50),
+  `comment_blogid` int(11) NOT NULL,
+  `comment_content` varchar(1000) NOT NULL,
+  `comment_date` datetime,
+  `comment_state` int(11),
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8;
+
+
+-- Table structure for table `tb_link`
+DROP TABLE IF EXISTS `tb_link`;
+
+CREATE TABLE `tb_link` (
+  `link_id` int(11) NOT NULL AUTO_INCREMENT,
+  `link_name` varchar(100) NOT NULL,
+  `link_url` varchar(200) NOT NULL,
+  `link_orderno` int(11),
+  PRIMARY KEY (`link_id`)
+) DEFAULT CHARSET=utf8;
+
+-- Insert the first blogger info for login
+INSERT INTO tb_blogger VALUES(1, 'Allan0423', '368ae049d56bd31aa202d72585aff19e0d27256f6d836110f585acb6d8644ae4', null, null, null, null);
