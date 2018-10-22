@@ -14,7 +14,7 @@
     <link href="http://blog.java1234.com/favicon.ico" rel="SHORTCUT ICON">
     <script src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
-
+<!--
     <script>
         (function() {
             var hm = document.createElement("script");
@@ -22,7 +22,7 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-    </script>
+    </script> -->
 
     <style type="text/css">
         body {

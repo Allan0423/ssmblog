@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -60,7 +61,6 @@ public class BloggerController {
      * 关于博主
      * @return modelAndView
      */
-    /*
     @RequestMapping("/aboutMe")
     public ModelAndView aboutMe(){
 
@@ -71,5 +71,4 @@ public class BloggerController {
 
         return modelAndView;
     }
-    */
 }
