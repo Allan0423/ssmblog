@@ -17,14 +17,14 @@ public interface BlogMapper {
      * 分页查询博客
      * @return
      */
-    List<Blog> list(Map<String,Object> map);
+    List<Blog> list(Map<String, Object> map);
 
     /**
      * 获取总记录数
      * @param map
      * @return
      */
-    Integer getCount(Map<String,Object> map);
+    Integer getCount(Map<String, Object> map);
 
     /**
      * 通过Id查找实体

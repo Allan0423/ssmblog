@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zp.mapper.BlogMappero">
+<mapper namespace="cn.zp.mapper.BlogMapper">
     <resultMap type="Blog" id="BlogMapping">
         <id property="id" column="blog_id"/>
         <result property="title" column="blog_title"/>
@@ -36,7 +36,7 @@
         </if>
     </select>
 
-    <select id="getTotal" parameterType="Map" resultType="Integer">
+    <select id="getCount" parameterType="Map" resultType="Integer">
         select count(*) from tb_blog
         <where>
             <if test="title!=null and title!='' ">
@@ -100,7 +100,7 @@
 		DELETE FROM tb_blog where blog_id=#{id}
 	</delete>
 
-    <select id="getBlogByTypeId" parameterType="Integer" resultType="Integer">
+    <select id="getBlogCountByTypeId" parameterType="Integer" resultType="Integer">
 		SELECT COUNT(*) FROM tb_blog WHERE blog_typeid=#{typeId}
 	</select>
 </mapper>

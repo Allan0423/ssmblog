@@ -32,7 +32,7 @@
         int yl = random.nextInt(12);
         g.drawLine(x,y,x+xl,y+yl);
     }
-    String sRand="";
+    String sRand = "";
     for (int i = 0; i < 4; i++){
         String rand=String.valueOf(random.nextInt(10));
         sRand += rand;
