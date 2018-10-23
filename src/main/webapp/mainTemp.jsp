@@ -38,7 +38,7 @@
 
     <div class="row">
         <div class="col-md-9">
-            <jsp:include page="${mainPage }"></jsp:include>
+            <jsp:include page="${mainPage}"></jsp:include>
         </div>
 
         <div class="col-md-3">
