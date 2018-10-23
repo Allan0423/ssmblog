@@ -39,6 +39,7 @@ public class SystemAdminController {
     @Resource
     private IBlogService blogService;
 
+    @RequestMapping("/refreshSystem")
     public void refreshSystem(HttpServletRequest request, HttpServletResponse response) throws Exception{
         ServletContext context = RequestContextUtils.getWebApplicationContext(request).getServletContext();
 
