@@ -4,7 +4,7 @@
     <!-- 博客类型查询结果字段与博客类型属性之间的映射关系，propertity为类属性，column为表中的字段名 -->
     <resultMap id="BlogTypeMapping" type="BlogType">
         <id property="id" column="blogtype_id" javaType="int"/>
-        <result property="name" column="blogtype_typename"/>
+        <result property="name" column="blogtype_name"/>
         <result property="orderNo" column="blogtype_orderno"/>
     </resultMap>
 
