@@ -44,7 +44,7 @@
             }
         }
 
-        function formatState(val,row){
+        function formatState(val, row){
             if(val==0){
                 return "待审核";
             }else if(val==1){
