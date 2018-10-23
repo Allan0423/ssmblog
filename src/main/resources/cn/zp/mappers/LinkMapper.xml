@@ -4,23 +4,23 @@
 
     <resultMap type="Link" id="LinkMapping">
         <id property="id" column="link_id"/>
-        <result property="linkName" column="link_linkname"/>
-        <result property="linkUrl" column="link_linkurl"/>
+        <result property="name" column="link_name"/>
+        <result property="url" column="link_url"/>
         <result property="orderNo" column="link_orderno"/>
     </resultMap>
 
     <insert id="add" parameterType="Link">
-		INSERT INTO tb_link VALUES(NULL,#{linkName},#{linkUrl},#{orderNo})
+		INSERT INTO tb_link VALUES(NULL,#{name},#{url},#{orderNo})
 	</insert>
 
     <update id="update" parameterType="Link">
         UPDATE tb_link
         <set>
-            <if test="linkName!=null and linkName!='' ">
-                link_linkname=#{linkName},
+            <if test="name!=null and name!='' ">
+                link_name=#{name},
             </if>
-            <if test="linkUrl!=null and linkUrl!='' ">
-                link_linkurl=#{linkUrl},
+            <if test="url!=null and url!='' ">
+                link_url=#{url},
             </if>
             <if test="orderNo!=null">
                 link_orderno=#{orderNo},
@@ -36,7 +36,7 @@
         </if>
     </select>
 
-    <select id="getTotal" parameterType="Map" resultType="Integer">
+    <select id="getCount" parameterType="Map" resultType="Integer">
 		SELECT COUNT(*) FROM tb_link
 	</select>
 

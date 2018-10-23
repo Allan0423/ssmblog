@@ -10,7 +10,7 @@ public class BlogType {
     /**
      * 类别名称
      */
-    private String typeName;
+    private String name;
 
     /**
      * 排序序号
@@ -30,12 +30,12 @@ public class BlogType {
         this.id = id;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getName() {
+        return name;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getOrderNo() {

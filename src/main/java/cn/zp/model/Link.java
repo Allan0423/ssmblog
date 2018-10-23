@@ -13,12 +13,12 @@ public class Link {
     /**
      * 链接名称
      */
-    private String linkName;
+    private String name;
 
     /**
      * 链接地址
      */
-    private String linkUrl;
+    private String url;
 
     /**
      * 排序序号 从小到大排序
@@ -32,17 +32,17 @@ public class Link {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getLinkName() {
-        return linkName;
+    public String getName() {
+        return name;
     }
-    public void setLinkName(String linkName) {
-        this.linkName = linkName;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getLinkUrl() {
-        return linkUrl;
+    public String getUrl() {
+        return url;
     }
-    public void setLinkUrl(String linkUrl) {
-        this.linkUrl = linkUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
     public Integer getOrderNo() {
         return orderNo;

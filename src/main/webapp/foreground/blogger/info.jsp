@@ -5,6 +5,6 @@
         关于我
     </div>
     <div style="padding: 30px">
-        ${blogger.proFile }
+        ${blogger.profile }
     </div>
 </div>

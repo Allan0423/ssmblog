@@ -83,8 +83,8 @@
         }
 
         function resetValue(){
-            $("#linkName").val("");
-            $("#linkUrl").val("");
+            $("#name").val("");
+            $("#url").val("");
             $("#orderNo").val("");
         }
 
@@ -102,8 +102,8 @@
         <tr>
             <th field="cb" checkbox="true" align="center"></th>
             <th field="id" width="20" align="center">编号</th>
-            <th field="linkName" width="200" align="center">友情链接名称</th>
-            <th field="linkUrl" width="200" align="center">友情链接地址</th>
+            <th field="name" width="200" align="center">友情链接名称</th>
+            <th field="url" width="200" align="center">友情链接地址</th>
             <th field="orderNo" width="100" align="center">排序序号</th>
         </tr>
         </thead>
@@ -123,11 +123,11 @@
             <table cellspacing="8px">
                 <tr>
                     <td>友情链接名称：</td>
-                    <td><input type="text" id="linkName" name="name" class="easyui-validatebox" required="true"/></td>
+                    <td><input type="text" id="name" name="name" class="easyui-validatebox" required="true"/></td>
                 </tr>
                 <tr>
                     <td>友情链接地址：</td>
-                    <td><input type="text" id="linkUrl" name="url" class="easyui-validatebox" validtype="url" required="true" style="width: 250px"/></td>
+                    <td><input type="text" id="url" name="url" class="easyui-validatebox" validtype="url" required="true" style="width: 250px"/></td>
                 </tr>
                 <tr>
                     <td>友情链接排序：</td>
