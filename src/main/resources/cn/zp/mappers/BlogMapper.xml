@@ -14,7 +14,12 @@
     </resultMap>
 
     <select id="countList"  resultMap="BlogMapping">
-		SELECT DATE_FORMAT(releaseDate,'%Y年%m月') AS releaseDateStr ,COUNT(*) AS blogCount  FROM tb_blog GROUP BY DATE_FORMAT(releaseDate,'%Y年%m月') ORDER BY DATE_FORMAT(releaseDate,'%Y年%m月') DESC;
+		SELECT
+		    DATETIME(blog_releasedate,'%Y年%m月') AS releasedateStr ,
+		    COUNT(*) AS blogCount
+		FROM tb_blog
+		GROUP BY DATETIME(blog_releasedate,'%Y年%m月')
+		ORDER BY DATETIME(blog_releasedate,'%Y年%m月') DESC;
 	</select>
 
     <select id="list" parameterType="Map" resultMap="BlogMapping">

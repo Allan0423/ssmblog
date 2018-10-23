@@ -48,7 +48,7 @@
     <div>
         <div class="blog_title"><h3><strong>${blog.title }</strong></h3></div>
         <div class="blog_info">
-            发布时间：『 <fmt:formatDate value="${blog.releaseDate }" type="date" pattern="yyyy-MM-dd HH:mm"/>』&nbsp;&nbsp;博客类别：${blog.blogType.typeName}&nbsp;&nbsp;阅读(${blog.clickHit}) 评论(${blog.replyHit})
+            发布时间：『 <fmt:formatDate value="${blog.releaseDate }" type="date" pattern="yyyy-MM-dd HH:mm"/>』&nbsp;&nbsp;博客类别：${blog.blogType.name}&nbsp;&nbsp;阅读(${blog.clickHit}) 评论(${blog.replyHit})
         </div>
         <div class="blog_content">
             ${blog.content }

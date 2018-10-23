@@ -67,7 +67,7 @@
                 <select class="easyui-combobox" style="width: 154px" id="blogTypeId" name="blogType.id" editable="false" panelHeight="auto" >
                     <option value="">请选择博客类别...</option>
                     <c:forEach var="blogType" items="${blogTypeCountList }">
-                        <option value="${blogType.id }">${blogType.typeName }</option>
+                        <option value="${blogType.id }">${blogType.name }</option>
                     </c:forEach>
                 </select>
             </td>

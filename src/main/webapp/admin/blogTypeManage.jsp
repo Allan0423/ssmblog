@@ -53,7 +53,7 @@
         }
 
         function resetValue(){
-            $("#typeName").val("");
+            $("#name").val("");
             $("#orderNo").val("");
         }
 
@@ -102,7 +102,7 @@
     <tr>
         <th field="cb" checkbox="true" align="center"></th>
         <th field="id" width="20" align="center">编号</th>
-        <th field="typeName" width="100" align="center">博客类型名称</th>
+        <th field="name" width="100" align="center">博客类型名称</th>
         <th field="orderNo" width="100" align="center">排序序号</th>
     </tr>
     </thead>
@@ -121,7 +121,7 @@
             <tr>
                 <td>博客类别名称：</td>
                 <td>
-                    <input type="text" id="typeName" name="typeName" class="easyui-validatebox" required="true"/>
+                    <input type="text" id="name" name="name" class="easyui-validatebox" required="true"/>
                 </td>
             </tr>
             <tr>

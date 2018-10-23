@@ -62,7 +62,7 @@
                 <div class="datas">
                     <ul>
                         <c:forEach var="blogTypeCount" items="${blogTypeCountList }">
-                            <li><span><a href="${pageContext.request.contextPath}/index.html?typeId=${blogTypeCount.id }">${blogTypeCount.typeName }(${blogTypeCount.blogCount })</a></span></li>
+                            <li><span><a href="${pageContext.request.contextPath}/index.html?typeId=${blogTypeCount.id }">${blogTypeCount.name }(${blogTypeCount.blogCount })</a></span></li>
                         </c:forEach>
                     </ul>
                 </div>

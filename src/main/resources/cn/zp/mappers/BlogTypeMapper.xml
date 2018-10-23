@@ -4,19 +4,19 @@
     <!-- 博客类型查询结果字段与博客类型属性之间的映射关系，propertity为类属性，column为表中的字段名 -->
     <resultMap id="BlogTypeMapping" type="BlogType">
         <id property="id" column="blogtype_id" javaType="int"/>
-        <result property="typeName" column="blogtype_typename"/>
+        <result property="name" column="blogtype_typename"/>
         <result property="orderNo" column="blogtype_orderno"/>
     </resultMap>
 
     <select id="countAll" resultMap="BlogTypeMapping">
         SELECT
             t1.blogtype_id,
-            t1.blogtype_typename,
+            t1.blogtype_name,
             COUNT(t2.blog_id) AS blogCount
         FROM tb_blogtype t1
             LEFT JOIN tb_blog t2 ON t1.blogtype_id = t2.blog_typeid
-        GROUP BY t1.blogtype_typename
-        ORDER t1.blogtype_orderno
+        GROUP BY t1.blogtype_name
+        ORDER BY t1.blogtype_orderno
     </select>
 
     <select id="findById" parameterType="Integer" resultMap="BlogTypeMapping">
@@ -43,14 +43,14 @@
 
     <insert id="add" parameterType="BlogType">
 		INSERT INTO tb_blogtype
-		VALUES(null,#{typeName},#{orderNo});
+		VALUES(null,#{name},#{orderNo});
 	</insert>
 
     <update id="update" parameterType="BlogType">
         UPDATE tb_blogtype
         <set>
-            <if test="typeName != null and typeName != ''">
-                blogtype_typeName=#{typeName},
+            <if test="name != null and name != ''">
+                blogtype_name=#{name},
             </if>
             <if test="orderNo != null">
                 blogtype_orderNo=#{orderNo},
