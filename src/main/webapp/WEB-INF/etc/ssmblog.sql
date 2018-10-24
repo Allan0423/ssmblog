@@ -69,4 +69,4 @@ CREATE TABLE `tb_link` (
 ) DEFAULT CHARSET=utf8;
 
 -- Insert the first blogger info for login
-INSERT INTO tb_blogger VALUES(1, 'Allan', '368ae049d56bd31aa202d72585aff19e0d27256f6d836110f585acb6d8644ae4', null, null, null, null);
+INSERT INTO tb_blogger VALUES(1, 'Allan', '368ae049d56bd31aa202d72585aff19e0d27256f6d836110f585acb6d8644ae4', '90后野生Java程序员', '沐风', '欲穷千里目，更上一层楼', 'profilePic.jpg');
