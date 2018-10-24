@@ -8,8 +8,7 @@ CREATE TABLE `tb_blogger` (
   `blogger_profile` text,
   `blogger_nickname` varchar(64),
   `blogger_signature` varchar(128),
-  `blogger_profilepicname` varchar(128),
-  PRIMARY KEY (`blogger_id`)
+  `blogger_profilepicname` varchar(128)
 );
 
 
@@ -19,8 +18,7 @@ DROP TABLE IF EXISTS `tb_blogtype`;
 CREATE TABLE `tb_blogtype` (
   `blogtype_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `blogtype_name` varchar(64) NOT NULL,
-  `blogtype_orderno` int(11),
-  PRIMARY KEY (`blogtype_id`)
+  `blogtype_orderno` int(11)
 ) ;
 
 
@@ -31,16 +29,14 @@ CREATE TABLE `tb_blog` (
   `blog_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `blog_title` varchar(128) NOT NULL,
   `blog_digest` varchar(512),
-  `blog_releaseDate` datetime,
+  `blog_releasedate` datetime,
   `blog_clickHit` int(11),
   `blog_replyhit` int(11),
   `blog_content` text,
   `blog_typeid` int(11),
-  `blog_keyword` varchar(256),
-  PRIMARY KEY (`blog_id`),
-  KEY `blog_typeid` (`blogtype_id`),
+  `blog_keyword` varchar(256)
   CONSTRAINT `tb_blog_tb_blogtype_blogtype_id_fk` FOREIGN KEY (`blog_typeid`) REFERENCES `tb_blogtype` (`blogtype_id`)
-) DEFAULT CHARSET=utf8;
+);
 
 
 -- Table structure for table `tb_comment`
@@ -52,9 +48,8 @@ CREATE TABLE `tb_comment` (
   `comment_blogid` int(11) NOT NULL,
   `comment_content` varchar(1000) NOT NULL,
   `comment_date` datetime,
-  `comment_state` int(11),
-  PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+  `comment_state` int(11)
+);
 
 
 -- Table structure for table `tb_link`
@@ -64,9 +59,8 @@ CREATE TABLE `tb_link` (
   `link_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `link_name` varchar(100) NOT NULL,
   `link_url` varchar(200) NOT NULL,
-  `link_orderno` int(11),
-  PRIMARY KEY (`link_id`)
-) DEFAULT CHARSET=utf8;
+  `link_orderno` int(11)
+);
 
 -- Insert the first blogger info for login
 INSERT INTO tb_blogger VALUES(1, 'Allan', '368ae049d56bd31aa202d72585aff19e0d27256f6d836110f585acb6d8644ae4', '90后野生Java程序员', '沐风', '欲穷千里目，更上一层楼', 'profilePic.jpg');
