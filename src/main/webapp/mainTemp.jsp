@@ -13,16 +13,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/blog.css">
     <script src="${pageContext.request.contextPath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/bootstrap3/js/bootstrap.min.js"></script>
-<!--
-    <script>
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?aa5c701f4f646931bf78b6f40b234ef5";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script> -->
-
     <style type="text/css">
         body {
             padding-top: 10px;

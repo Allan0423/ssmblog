@@ -34,13 +34,12 @@ public class IndexController {
     /**
      * 请求主页
      * @return
-     * @throws Exception
      */
     @RequestMapping("/index")
     public ModelAndView index(@RequestParam(value="page", required=false) String page,
                               @RequestParam(value="typeId", required=false) String typeId,
                               @RequestParam(value="releaseDateStr", required=false) String releaseDateStr,
-                              HttpServletRequest request)throws Exception{
+                              HttpServletRequest request){
 
         ModelAndView mav = new ModelAndView();
         if(StringUtil.isEmpty(page)){
@@ -57,7 +56,7 @@ public class IndexController {
             List<String> imagesList = blog.getImageList();
             String blogInfo = blog.getContent();
             Document doc = Jsoup.parse(blogInfo);
-            Elements jpgs = doc.select("img[src$=.jpg]"); //　查找扩展名是jpg的图片
+            Elements jpgs = doc.select("img[src$=.jpg]");
             for(int i = 0; i < jpgs.size(); i++){
                 Element jpg = jpgs.get(i);
                 imagesList.add(jpg.toString());
