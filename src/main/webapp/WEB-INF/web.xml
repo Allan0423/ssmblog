@@ -58,6 +58,10 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <listener>
+        <listener-class>cn.zp.service.impl.InitComponent</listener-class>
+    </listener>
+
     <!-- 对Spring MVC的支持 -->
     <servlet>
         <servlet-name>springMVC</servlet-name>
