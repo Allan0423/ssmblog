@@ -11,6 +11,8 @@ import cn.zp.service.ILinkService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -20,6 +22,7 @@ import java.util.List;
 /**
  * 应用启动时初始化博主和博客相关信息
  */
+@Component
 public class InitComponent implements ServletContextListener, ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
