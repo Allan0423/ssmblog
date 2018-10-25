@@ -32,10 +32,7 @@
 </head>
 <body>
 <div class="container">
-    <!-- <jsp:include page="/foreground/common/head.jsp"/>-->
-
     <jsp:include page="/foreground/common/menu.jsp"/>
-
     <div class="row">
         <div class="col-md-9">
             <jsp:include page="${mainPage}"></jsp:include>
