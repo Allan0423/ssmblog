@@ -8,11 +8,12 @@ import cn.zp.service.IBlogService;
 import cn.zp.service.IBlogTypeService;
 import cn.zp.service.IBloggerService;
 import cn.zp.service.ILinkService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -24,6 +25,8 @@ import java.util.List;
  */
 @Component
 public class InitComponent implements ServletContextListener, ApplicationContextAware {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(InitComponent.class);
 
     private static ApplicationContext applicationContext;
 
@@ -52,6 +55,7 @@ public class InitComponent implements ServletContextListener, ApplicationContext
         List<Blog> blogList = blogService.countList();
         application.setAttribute("blogList", blogList);
 
+        LOGGER.info("Information of blogger, blogTypes, blogs, and links has been initialized successfully !");
     }
 
     @Override
