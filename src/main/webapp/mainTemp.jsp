@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="container">
-    <jsp:include page="/foreground/common/head.jsp"/>
+    <!-- <jsp:include page="/foreground/common/head.jsp"/>-->
 
     <jsp:include page="/foreground/common/menu.jsp"/>
 
@@ -45,13 +45,12 @@
             <div class="data_list">
                 <div class="data_list_title">
                     <img src="${pageContext.request.contextPath}/static/images/user_icon.png"/>
-                    博主信息
+                    <a href="${pageContext.request.contextPath}/blogger/aboutMe.html"><font color="black"><strong>关于博主</strong></font></a>
                 </div>
                 <div class="user_image">
                     <img src="${pageContext.request.contextPath}/static/userImages/${blogger.profilePicName}"/>
                 </div>
-                <div class="nickName">${blogger.nickName }</div>
-                <div class="userSign">(${blogger.signature })</div>
+                <div class="userSign">${blogger.signature}</div>
             </div>
 
             <div class="data_list">
@@ -61,7 +60,7 @@
                 </div>
                 <div class="datas">
                     <ul>
-                        <c:forEach var="blogTypeCount" items="${blogTypeCountList }">
+                        <c:forEach var="blogTypeCount" items="${blogTypeCountList}">
                             <li><span><a href="${pageContext.request.contextPath}/index.html?typeId=${blogTypeCount.id}">${blogTypeCount.name}(${blogTypeCount.blogCount})</a></span></li>
                         </c:forEach>
                     </ul>
@@ -75,8 +74,8 @@
                 </div>
                 <div class="datas">
                     <ul>
-                        <c:forEach var="blogCount" items="${blogCountList }">
-                            <li><span><a href="${pageContext.request.contextPath}/index.html?releaseDateStr=${blogCount.releaseDateStr }">${blogCount.releaseDateStr }(${blogCount.blogCount })</a></span></li>
+                        <c:forEach var="blogCount" items="${blogCountList}">
+                            <li><span><a href="${pageContext.request.contextPath}/index.html?releaseDateStr=${blogCount.releaseDateStr}">${blogCount.releaseDateStr}(${blogCount.blogCount})</a></span></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -90,7 +89,7 @@
                 <div class="datas">
                     <ul>
                         <c:forEach var="link" items="${linkList }">
-                            <li><span><a href="${link.url }" target="_blank">${link.name }</a></span></li>
+                            <li><span><a href="${link.url }" target="_blank">${link.name}</a></span></li>
                         </c:forEach>
                     </ul>
                 </div>
