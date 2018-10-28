@@ -45,7 +45,7 @@ public class BlogController {
     public ModelAndView details(@PathVariable("id") Integer id, HttpServletRequest request)throws Exception{
         ModelAndView mav = new ModelAndView();
         Blog blog = blogService.findById(id);
-        String keyWords = blog.getKeyWords();
+        String keyWords = blog.getKeyWord();
         if(StringUtil.isNotEmpty(keyWords)){
             String[] keyWordArr = keyWords.split(" ");
             mav.addObject("keyWords", StringUtil.filterWhite(Arrays.asList(keyWordArr)));

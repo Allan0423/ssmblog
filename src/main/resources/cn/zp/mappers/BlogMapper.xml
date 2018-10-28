@@ -66,8 +66,8 @@
             <if test="title!=null and title!='' ">
                 blog_title=#{title},
             </if>
-            <if test="summary!=null and summary!='' ">
-                blog_summary=#{summary},
+            <if test="digest!=null and digest!='' ">
+                blog_digest=#{digest},
             </if>
             <if test="content!=null and content!='' ">
                 blog_content=#{content},
@@ -98,7 +98,7 @@
 
 
     <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Blog">
-		insert into tb_blog values(null,#{title},#{summary},datetime('now','localtime'),0,0,#{content},#{blogType.id},#{keyWord})
+		insert into tb_blog values(null,#{title},#{digest},datetime('now','localtime'),0,0,#{content},#{blogType.id},#{keyWord})
 	</insert>
 
     <delete id="delete" parameterType="Integer">
