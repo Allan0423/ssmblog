@@ -24,7 +24,11 @@ import java.util.List;
 
 public class BlogIndex {
 
-    private Directory dir = null;
+    private Directory dir;
+
+    private void initDir() throws Exception{
+        this.dir = FSDirectory.open(Paths.get(Thread.currentThread().getContextClassLoader().getResource("").getPath() + "/luence" ));
+    }
 
     /**
      * 获取IndexWriter实例
@@ -33,7 +37,7 @@ public class BlogIndex {
      * @throws Exception
      */
     private IndexWriter getWriter() throws Exception {
-        dir = FSDirectory.open(Paths.get("C://lucene"));
+        initDir();
         SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
         IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
         IndexWriter writer = new IndexWriter(dir, iwc);
@@ -94,7 +98,7 @@ public class BlogIndex {
      * @throws Exception
      */
     public List<Blog> searchBlog(String queryWord) throws Exception {
-        dir = FSDirectory.open(Paths.get("C://lucene"));
+        initDir();
         IndexReader reader = DirectoryReader.open(dir);
         IndexSearcher is = new IndexSearcher(reader);
         BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
