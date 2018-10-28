@@ -5,7 +5,7 @@
         <id property="id" column="blog_id"/>
         <result property="title" column="blog_title"/>
         <result property="digest" column="blog_digest"/>
-        <result property="releaseDate" column="blog_releaseDate"/>
+        <result property="releaseDate" column="blog_releasedate"/>
         <result property="clickHit" column="blog_clickHit"/>
         <result property="replyHit" column="blog_replyHit"/>
         <result property="content" column="blog_content"/>
@@ -32,10 +32,10 @@
                 and blog_typeId = #{typeId}
             </if>
             <if test="releaseDateStr!=null and releaseDateStr!='' ">
-                and DATE_FORMAT(blog_releaseDate,'%Y年%m月') = #{releaseDateStr}
+                and DATE_FORMAT(blog_releasedate,'%Y年%m月') = #{releaseDateStr}
             </if>
         </where>
-        order by blog_releaseDate desc
+        order by blog_releasedate desc
         <if test="start!=null and size!=null">
             limit #{start},#{size}
         </if>
