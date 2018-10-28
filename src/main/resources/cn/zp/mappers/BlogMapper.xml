@@ -4,7 +4,7 @@
     <resultMap type="Blog" id="BlogMapping">
         <id property="id" column="blog_id"/>
         <result property="title" column="blog_title"/>
-        <result property="summary" column="blog_summary"/>
+        <result property="digest" column="blog_digest"/>
         <result property="releaseDate" column="blog_releaseDate"/>
         <result property="clickHit" column="blog_clickHit"/>
         <result property="replyHit" column="blog_replyHit"/>
@@ -98,7 +98,7 @@
 
 
     <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Blog">
-		insert into tb_blog values(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyWord})
+		insert into tb_blog values(null,#{title},#{summary},datetime('now','localtime'),0,0,#{content},#{blogType.id},#{keyWord})
 	</insert>
 
     <delete id="delete" parameterType="Integer">
