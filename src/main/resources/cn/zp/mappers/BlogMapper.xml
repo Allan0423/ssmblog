@@ -15,11 +15,11 @@
 
     <select id="countList"  resultMap="BlogMapping">
 		SELECT
-		    DATETIME(blog_releasedate,'%Y年%m月') AS releasedateStr ,
+		    STRFTIME('%Y年%m月', blog_releasedate) AS releaseDateStr ,
 		    COUNT(*) AS blogCount
 		FROM tb_blog
-		GROUP BY DATETIME(blog_releasedate,'%Y年%m月')
-		ORDER BY DATETIME(blog_releasedate,'%Y年%m月') DESC;
+		GROUP BY STRFTIME('%Y年%m月', blog_releasedate)
+		ORDER BY STRFTIME('%Y年%m月', blog_releasedate) DESC;
 	</select>
 
     <select id="list" parameterType="Map" resultMap="BlogMapping">
@@ -32,7 +32,7 @@
                 and blog_typeId = #{typeId}
             </if>
             <if test="releaseDateStr!=null and releaseDateStr!='' ">
-                and DATE_FORMAT(blog_releasedate,'%Y年%m月') = #{releaseDateStr}
+                and STRFTIME('%Y年%m月', blog_releasedate) = #{releaseDateStr}
             </if>
         </where>
         order by blog_releasedate desc
@@ -51,7 +51,7 @@
                 and blog_typeid = #{typeId}
             </if>
             <if test="releaseDateStr!=null and releaseDateStr!='' ">
-                and DATE_FORMAT(blog_releasedate,'%Y年%m月') = #{releaseDateStr}
+                and STRFTIME('%Y年%m月', blog_releasedate) = #{releaseDateStr}
             </if>
         </where>
     </select>
