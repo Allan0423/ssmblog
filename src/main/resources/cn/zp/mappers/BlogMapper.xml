@@ -51,7 +51,7 @@
                 and blog_typeid = #{typeId}
             </if>
             <if test="releaseDateStr!=null and releaseDateStr!='' ">
-                and DATE_FORMAT(blog_releaseDate,'%Y年%m月') = #{releaseDateStr}
+                and DATE_FORMAT(blog_releasedate,'%Y年%m月') = #{releaseDateStr}
             </if>
         </where>
     </select>
@@ -98,7 +98,7 @@
 
 
     <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Blog">
-		insert into tb_blog values(null,#{title},#{digest},datetime('now','localtime'),0,0,#{content},#{blogType.id},#{keyWord})
+		insert into tb_blog values(null,#{title},#{digest},strftime('%Y-%m-%d %H:%M:%f','now','localtime'),0,0,#{content},#{blogType.id},#{keyWord})
 	</insert>
 
     <delete id="delete" parameterType="Integer">
