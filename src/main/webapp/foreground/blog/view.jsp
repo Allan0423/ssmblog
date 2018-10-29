@@ -56,11 +56,11 @@
         <div class="blog_keyWord">
             <font><strong>关键字：</strong></font>
             <c:choose>
-                <c:when test="${keyWords==null}">
+                <c:when test="${keyWord==null}">
                     &nbsp;&nbsp;无
                 </c:when>
                 <c:otherwise>
-                    <c:forEach var="keyWord" items="${keyWords }">
+                    <c:forEach var="keyWord" items="${keyWord }">
                         &nbsp;&nbsp;<a href="${pageContext.request.contextPath}/blog/query.html?query=${keyWord}" target="_blank">${keyWord}</a>&nbsp;&nbsp;
                     </c:forEach>
                 </c:otherwise>

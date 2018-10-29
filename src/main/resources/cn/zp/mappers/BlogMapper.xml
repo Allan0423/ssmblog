@@ -4,8 +4,8 @@
     <resultMap type="Blog" id="BlogMapping">
         <id property="id" column="blog_id"/>
         <result property="title" column="blog_title"/>
-        <result property="summary" column="blog_summary"/>
-        <result property="releaseDate" column="blog_releaseDate"/>
+        <result property="digest" column="blog_digest"/>
+        <result property="releaseDate" column="blog_releasedate"/>
         <result property="clickHit" column="blog_clickHit"/>
         <result property="replyHit" column="blog_replyHit"/>
         <result property="content" column="blog_content"/>
@@ -15,11 +15,11 @@
 
     <select id="countList"  resultMap="BlogMapping">
 		SELECT
-		    DATETIME(blog_releasedate,'%Y年%m月') AS releasedateStr ,
+		    STRFTIME('%Y年%m月', blog_releasedate) AS releaseDateStr ,
 		    COUNT(*) AS blogCount
 		FROM tb_blog
-		GROUP BY DATETIME(blog_releasedate,'%Y年%m月')
-		ORDER BY DATETIME(blog_releasedate,'%Y年%m月') DESC;
+		GROUP BY STRFTIME('%Y年%m月', blog_releasedate)
+		ORDER BY STRFTIME('%Y年%m月', blog_releasedate) DESC;
 	</select>
 
     <select id="list" parameterType="Map" resultMap="BlogMapping">
@@ -32,10 +32,10 @@
                 and blog_typeId = #{typeId}
             </if>
             <if test="releaseDateStr!=null and releaseDateStr!='' ">
-                and DATE_FORMAT(blog_releaseDate,'%Y年%m月') = #{releaseDateStr}
+                and STRFTIME('%Y年%m月', blog_releasedate) = #{releaseDateStr}
             </if>
         </where>
-        order by blog_releaseDate desc
+        order by blog_releasedate desc
         <if test="start!=null and size!=null">
             limit #{start},#{size}
         </if>
@@ -51,13 +51,13 @@
                 and blog_typeid = #{typeId}
             </if>
             <if test="releaseDateStr!=null and releaseDateStr!='' ">
-                and DATE_FORMAT(blog_releaseDate,'%Y年%m月') = #{releaseDateStr}
+                and STRFTIME('%Y年%m月', blog_releasedate) = #{releaseDateStr}
             </if>
         </where>
     </select>
 
     <select id="findById" parameterType="Integer" resultMap="BlogMapping">
-		select * from tb_blog where id=#{id}
+		select * from tb_blog where blog_id=#{id}
 	</select>
 
     <update id="update" parameterType="Blog">
@@ -66,8 +66,8 @@
             <if test="title!=null and title!='' ">
                 blog_title=#{title},
             </if>
-            <if test="summary!=null and summary!='' ">
-                blog_summary=#{summary},
+            <if test="digest!=null and digest!='' ">
+                blog_digest=#{digest},
             </if>
             <if test="content!=null and content!='' ">
                 blog_content=#{content},
@@ -85,20 +85,20 @@
                 blog_keyword=#{keyWord},
             </if>
         </set>
-        where blog_id=#{id}
+        WHERE blog_id=#{id}
     </update>
 
     <select id="getLastBlog" parameterType="Integer" resultMap="BlogMapping">
-		SELECT * FROM tb_blog WHERE blog_id&lt;#{id} ORDER BY id DESC LIMIT 1
+		SELECT * FROM tb_blog WHERE blog_id&lt;#{id} ORDER BY blog_id DESC LIMIT 1
 	</select>
 
     <select id="getNextBlog" parameterType="Integer" resultMap="BlogMapping">
-		SELECT * FROM tb_blog WHERE blog_id&gt;#{id} ORDER BY id ASC LIMIT 1
+		SELECT * FROM tb_blog WHERE blog_id&gt;#{id} ORDER BY blog_id ASC LIMIT 1
 	</select>
 
 
     <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Blog">
-		insert into tb_blog values(null,#{title},#{summary},now(),0,0,#{content},#{blogType.id},#{keyWord})
+		insert into tb_blog values(null,#{title},#{digest},strftime('%Y-%m-%d %H:%M:%f','now','localtime'),0,0,#{content},#{blogType.id},#{keyWord})
 	</insert>
 
     <delete id="delete" parameterType="Integer">

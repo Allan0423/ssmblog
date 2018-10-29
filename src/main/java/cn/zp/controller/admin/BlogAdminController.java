@@ -31,7 +31,7 @@ public class BlogAdminController {
     private IBlogService blogService;
 
     // 博客索引
-    private BlogIndex blogIndex=new BlogIndex();
+    private BlogIndex blogIndex = new BlogIndex();
 
     /**
      * 添加或者修改博客信息

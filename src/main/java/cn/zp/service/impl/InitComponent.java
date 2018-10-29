@@ -53,7 +53,7 @@ public class InitComponent implements ServletContextListener, ApplicationContext
         // 根据日期分组查询博客数量
         IBlogService blogService = (IBlogService) applicationContext.getBean("blogService");
         List<Blog> blogList = blogService.countList();
-        application.setAttribute("blogList", blogList);
+        application.setAttribute("blogCountList", blogList);
 
         LOGGER.info("Information of blogger, blogTypes, blogs, and links has been initialized successfully !");
     }

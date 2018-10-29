@@ -20,6 +20,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 /**
  * 主页Controller
  */
@@ -50,7 +53,7 @@ public class IndexController {
         map.put("start", pageBean.getStart());
         map.put("size", pageBean.getPageSize());
         map.put("typeId", typeId);
-        map.put("releaseDateStr", releaseDateStr);
+        map.put("releaseDateStr", releaseDateStr == null ? null: new String(releaseDateStr.getBytes(ISO_8859_1), UTF_8));
         List<Blog> blogList = blogService.list(map);
         for(Blog blog : blogList){
             List<String> imagesList = blog.getImageList();
