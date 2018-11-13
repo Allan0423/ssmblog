@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                     <form action="${pageContext.request.contextPath}/blog/query.html" class="navbar-form navbar-right" role="search" method="post" onsubmit="return checkData()">
                         <div class="form-group" >
-                            <input type="text" id="query" name="query" value="${query}" class="form-control" placeholder="请输入要查询的关键字...">
+                            <input type="text" id="query" name="queryWord" value="${query}" class="form-control" placeholder="请输入要查询的关键字...">
                         </div>
                         <button type="submit" class="btn btn-default">搜索</button>
                     </form>
