@@ -11,7 +11,7 @@
     </resultMap>
 
     <insert id="add" parameterType="Comment">
-		INSERT INTO tb_comment VALUES(NULL,#{userIp},#{blog.id},#{content},now(),0)
+		INSERT INTO tb_comment VALUES(NULL,#{userIp},#{blog.id},#{content},strftime('%Y-%m-%d %H:%M:%f','now','localtime'),0)
 	</insert>
 
     <update id="update" parameterType="Comment">
