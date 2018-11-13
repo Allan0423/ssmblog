@@ -43,7 +43,7 @@ public class CommentController {
 
         String sRand = (String) session.getAttribute("sRand"); // 获取系统生成的验证码
         JSONObject result = new JSONObject();
-                if(!imageCode.equals(sRand)){
+        if(!imageCode.equals(sRand)){
             result.put("success", false);
             result.put("errorInfo", "验证码填写错误！");
         }else{
