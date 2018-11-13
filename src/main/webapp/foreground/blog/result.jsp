@@ -4,7 +4,7 @@
 <div class="data_list">
     <div class="data_list_title">
         <img src="${pageContext.request.contextPath}/static/images/search_icon.png"/>
-        搜索&nbsp;<font color="red">${q }</font>&nbsp;的结果 &nbsp;(总共搜索到&nbsp;${resultTotal}&nbsp;条记录) </div>
+        搜索&nbsp;<font color="red">${query}</font>&nbsp;的结果 &nbsp;(总共搜索到&nbsp;${resultTotal}&nbsp;条记录) </div>
     <div class="datas search">
         <ul>
             <c:choose>
@@ -15,8 +15,8 @@
                     <c:forEach var="blog" items="${blogList }">
                         <li style="margin-bottom: 20px">
                             <span class="title"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html" target="_blank">${blog.title }</a></span>
-                            <span class="summary">摘要: ${blog.content }...</span>
-                            <span class="link"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html">http://blog.java1234.com/blog/articles/${blog.id}.html</a>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：${blog.releaseDateStr }</span>
+                            <span class="summary">摘要: ${blog.content}...</span>
+                            <span class="date">发布日期：${blog.releaseDateStr }</span>
                         </li>
                     </c:forEach>
                 </c:otherwise>
