@@ -51,16 +51,16 @@
             发布时间：『 <fmt:formatDate value="${blog.releaseDate }" type="date" pattern="yyyy-MM-dd HH:mm"/>』&nbsp;&nbsp;博客类别：${blog.blogType.name}&nbsp;&nbsp;阅读(${blog.clickHit}) 评论(${blog.replyHit})
         </div>
         <div class="blog_content">
-            ${blog.content }
+            ${blog.content}
         </div>
         <div class="blog_keyWord">
             <font><strong>关键字：</strong></font>
             <c:choose>
-                <c:when test="${keyWord==null}">
+                <c:when test="${keyWords == null}">
                     &nbsp;&nbsp;无
                 </c:when>
                 <c:otherwise>
-                    <c:forEach var="keyWord" items="${keyWord }">
+                    <c:forEach var="keyWord" items="${keyWords}">
                         &nbsp;&nbsp;<a href="${pageContext.request.contextPath}/blog/query.html?query=${keyWord}" target="_blank">${keyWord}</a>&nbsp;&nbsp;
                     </c:forEach>
                 </c:otherwise>
